@@ -58,7 +58,6 @@ resultsContainer.style.backgroundColor = "yellow";
 // Inside the function, loop through the list parameter and console log the name property in each object.
 // Call the function and pass in the cats variable in the script.js file in the repo.
 
-// answer to question 7
 const cats = [
   {
     name: "Blob",
@@ -73,6 +72,16 @@ const cats = [
   },
 ];
 
+// answer to question 7
+
+// function catNames(list) {
+//   for (let i = 0; i < list.length; i++) {
+//     console.log(list[i].name);
+//   }
+// }
+
+// catNames(cats);
+
 // Question 8:
 // Create a function called createCats. The function will have one parameter called cats.
 // Inside the function loop through the value passed in as cats and create HTML for each object in the array.
@@ -83,3 +92,25 @@ const cats = [
 // Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container.
 
 // answer to question 8
+
+const cattContainer = document.querySelector(".cat-container");
+
+function createCats(cats) {
+  let html = "";
+  for (let i = 0; i < cats.length; i++) {
+    let displayAge = "Unknown";
+    if (cats[i].age) {
+      displayAge = cats[i].age;
+    }
+
+    html += `<div class="cat">
+            <h5>${cats[i].name}</h5>
+            <p>age:${displayAge}</p>
+             </div>`;
+  }
+  return html;
+}
+
+const createdCats = createCats(cats);
+
+cattContainer.innerHTML = createdCats;
